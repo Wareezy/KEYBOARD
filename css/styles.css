@@ -1,68 +1,172 @@
+/* Set background color for the entire body */
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: rgb(17, 249, 226);
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-    font-size: 1.5rem;
+    background-color: #000;
 }
 
-.textContainer {
-    height: 15vh;
-    width: 90vw;
-    background: rgb(13, 140, 231);
-    border-radius: 0.5rem;
-    outline: none;
-    padding: 2rem;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column-reverse;
+/* Styles for the main heading */
+h1 {
+    text-align: center;
+    font-size: 2em; /* Increased font size for the heading */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #fffdfd;
+    padding: 0.7em;
 }
 
+/* Styles for the keyboard container */
 .keyboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 50vh;
-    width: 70vw;
-    background-color: rgb(51, 185, 242);
-    border-radius: 1rem;
+    text-align: center;
+    font-size: 16px; /* Increased font size for the keys */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-top: 1px solid #ffffff; /* Top border */
+    border-left: 5px solid #fffdfd; /* Left border */
+    border-right: 5px solid #ffffff; /* Right border */
+    border-bottom: 1px solid #ffffff; /* Bottom border */
+    padding-bottom: 15px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+/* Common styles for all keyboard rows */
+.keyboard__row {
+    display: inline-block;
+    height: 3.5em; /* Increased button height */
+    margin: 0.2em;
 }
 
-.last {
-    width: 65%;
-    margin: 0 auto;
-}
-/* this is the css for the space bar which baiscally just declares the height and width of the bar */
-
-.space {
-    background: rgb(9, 54, 151);
-    width: 50%;
-    height: 2rem;
+/* Special styles for the header row */
+.keyboard__row--h1 {
+    height: 2em; /* Increased height for the header row */
+    line-height: 1.8em;
 }
 
-.key {
+/* Special styles for the third row */
+.keyboard__row--h3 {
+    height: 4em; /* Increased height for the third row */
+}
+
+/* Styles for individual keys */
+.keyboard__row > * {
+    position: relative;
+    background: #0ec6cc;
+    text-align: center;
+    color: #000000;
+    float: left;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.3em; /* Increased padding for the keys */
+    width: 3.5em; /* Increased width for the keys */
+    height: 100%;
+    box-sizing: border-box;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 3px;
-
+    -webkit-user-select: none;
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    border-bottom-color: #555;
 }
 
-.key:active {
-    background: rgb(10, 223, 177);
+/* Hover styles for keys */
+.keyboard__row > *:hover {
+    background: #f57a0e;
+    color: #aaa;
+    position: relative;
+    top: 0.2em;
+    box-shadow: 0 0 0 0.05em black;
 }
 
-.active {
-    background-color: rgb(10, 223, 177);
+/* Styles for specific keys within the header row */
+.keyboard__row--h1 > div {
+    width: 3.8em; /* Increased width for specific keys */
+}
+
+/* Additional styles for pressed or active keys */
+.keyboard__row > div[data-pressed],
+.keyboard__row > div:active {
+    background: #2a2a2a;
+    color: #aaa;
+    position: relative;
+    top: 0.2em;
+    box-shadow: 0 0 0 0.05em black;
+}
+
+/* Width styles for specific key types */
+.key--w3 {
+    width: 4.8em; /* Increased width for this type */
+}
+
+.key--w4 {
+    width: 6.5em; /* Increased width for this type */
+}
+
+.key--w5 {
+    width: 7em; /* Increased width for this type */
+}
+
+.key--w6 {
+    width: 9em; /* Increased width for this type */
+}
+
+.key--space {
+    width: 20em; /* Increased width for the space key */
+}
+
+/* Styles for keys with double content */
+.key--double > * {
+    padding-top: 0.2em; /* Increased padding for double content */
+}
+
+/* Styles for letter keys */
+.key--letter {
+    line-height: 3em; /* Increased line height for letter keys */
+}
+
+/* Positioning and styles for keys at the bottom-left corner */
+.key--bottom-left > * {
+    position: absolute;
+    text-align: left;
+    bottom: 0.5em; /* Increased bottom position */
+    left: 0.5em; /* Increased left position */
+}
+
+/* Positioning and styles for keys at the bottom-right corner */
+.key--bottom-right > * {
+    position: absolute;
+    text-align: right;
+    bottom: 0.5em; /* Increased bottom position */
+    right: 0.5em; /* Increased right position */
+}
+
+/* Styles for function keys */
+.key--fn > * {
+    font-size: 0.7em; /* Increased font size for function keys */
+    line-height: 1.2em; /* Increased line height for function keys */
+    padding-top: 1.4em; /* Increased padding for function keys */
+    padding-right: 0.3em; /* Increased right padding for function keys */
+    text-align: right;
+    float: right;
+}
+
+/* Styles for word keys */
+.key--word > * {
+    font-size: 0.9em; /* Increased font size for word keys */
+}
+
+/* Styles for arrow keys */
+.key--arrow--tall > *,
+.key--arrow > * {
+    font-size: 0.6em; /* Increased font size for arrow keys */
+    line-height: 3.5em; /* Increased line height for arrow keys */
+}
+
+.key--arrow {
+    height: 2em; /* Increased height for arrow keys */
+    margin-top: 1.9em; /* Increased top margin for arrow keys */
+    line-height: 0.6em; /* Increased line height for arrow keys */
+}
+
+/* Padding styles for tall arrow keys */
+.key--arrow--tall > * {
+    padding-top: 0.3em; /* Increased padding for tall arrow keys */
+}
+
+/* Additional styling for keyboard rows within the keyboard container */
+.keyboard > .keyboard__row {
+    text-align: center;
 }
